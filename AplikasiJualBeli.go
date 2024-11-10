@@ -310,7 +310,6 @@ func hapusDataBarang(data *array) {
 }
 
 func findBarang(data *array, id int) int {
-	// Urutkan data barang berdasarkan ID sebelum melakukan pencarian binary.
 	selectionSort(data, 1, "ID")
 
 	left, right := 0, data.jumlah_inventory-1
@@ -590,12 +589,12 @@ func editDataTransaksi(data *array) {
 
 		// Update Stock Barang Lama
 		data.inventori[oldBarangIndex].Stock_Barang += data.transaksi[index].Jumlah_Pembelian
-		data.inventori[oldBarangIndex].Jumlah_Terjual -= data.transaksi[index].Jumlah_Pembelian // Adjust the sold quantity for old item
+		data.inventori[oldBarangIndex].Jumlah_Terjual -= data.transaksi[index].Jumlah_Pembelian 
 
 		// Update Stock Barang Baru
 		if data.inventori[barangIndexBaru].Stock_Barang >= data.transaksi[index].Jumlah_Pembelian {
 			data.inventori[barangIndexBaru].Stock_Barang -= data.transaksi[index].Jumlah_Pembelian
-			data.inventori[barangIndexBaru].Jumlah_Terjual += data.transaksi[index].Jumlah_Pembelian // Update the sold quantity for new item
+			data.inventori[barangIndexBaru].Jumlah_Terjual += data.transaksi[index].Jumlah_Pembelian 
 			data.transaksi[index].ID_Barang_Yang_Dibeli = idBarangBaru
 		} else {
 			fmt.Println("Jumlah stok barang baru tidak mencukupi.")
@@ -610,7 +609,7 @@ func editDataTransaksi(data *array) {
 
 		// Update Stock
 		data.inventori[barangIndex].Stock_Barang += oldJumlahPembelian
-		data.inventori[barangIndex].Jumlah_Terjual -= oldJumlahPembelian // Adjust the sold quantity
+		data.inventori[barangIndex].Jumlah_Terjual -= oldJumlahPembelian 
 
 		for jumlahPembelianBaru <= 0 || jumlahPembelianBaru > data.inventori[barangIndex].Stock_Barang {
 			fmt.Printf("Jumlah pembelian harus lebih besar dari 0 dan tidak boleh melebihi stok barang (%d). Silakan coba lagi.\n", data.inventori[barangIndex].Stock_Barang)
@@ -623,7 +622,7 @@ func editDataTransaksi(data *array) {
 
 		// Update Stock
 		data.inventori[barangIndex].Stock_Barang -= jumlahPembelianBaru
-		data.inventori[barangIndex].Jumlah_Terjual += jumlahPembelianBaru // Update the sold quantity
+		data.inventori[barangIndex].Jumlah_Terjual += jumlahPembelianBaru 
 	default:
 		fmt.Println("Opsi tidak valid.")
 	}
@@ -664,7 +663,7 @@ func updateStatusTransaksi(data *array) {
 		if data.transaksi[index].Status == "Sukses" {
 			oldBarangID := data.transaksi[index].ID_Barang_Yang_Dibeli
 			oldBarangIndex := findBarangIndex(data, oldBarangID)
-			data.inventori[oldBarangIndex].Jumlah_Terjual += data.transaksi[index].Jumlah_Pembelian // Adjust the sold quantity for old item
+			data.inventori[oldBarangIndex].Jumlah_Terjual += data.transaksi[index].Jumlah_Pembelian
 			fmt.Printf("Data Terjual di tambahkan ke produk %s dengan jumlah pembelian = %d", data.inventori[oldBarangIndex].Nama_Barang, data.inventori[oldBarangIndex].Jumlah_Terjual)
 		}
 		fmt.Println("Status transaksi berhasil diubah menjadi Sukses.")
@@ -970,7 +969,7 @@ func addDummyData(data *array) {
 	data.inventori[data.jumlah_inventory] = barang{20, "Tisu", "Kebutuhan", 2000, 4000, 80, 8}
 	data.jumlah_inventory++
 
-	// 10 data dummy pembelian
+	// data dummy pembelian
 	data.transaksi[data.jumlah_transaksi] = pembelian{"TRX1", "Ali", time.Now().AddDate(0, 0, -1), 1, 5, 60000, "Proses"}
 	data.jumlah_transaksi++
 	data.transaksi[data.jumlah_transaksi] = pembelian{"TRX2", "Budi", time.Now().AddDate(0, 0, -2), 2, 3, 45000, "Proses"}
