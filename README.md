@@ -115,6 +115,6 @@ Aplikasi sudah dilengkapi dengan *data dummy* sebanyak 20 data barang dan 10 dat
 Jika Anda ingin berkontribusi dalam pengembangan aplikasi ini, silakan lakukan pull request pada repositori GitHub.
 
 ## Kontak
-Jika ada pertanyaan atau saran, silakan hubungi saya di *fathanfs19@gmail.com*.
+Jika ada pertanyaan atau saran, silakan hubungi saya di *fathanfsanum@gmail.com*.
 
 Terima kasih telah menggunakan aplikasi ini! 🎉
