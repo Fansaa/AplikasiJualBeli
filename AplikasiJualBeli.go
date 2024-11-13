@@ -351,7 +351,7 @@ func cetakDataBarang(data *array) {
 	fmt.Println("Total barang:", data.jumlah_inventory)
 	fmt.Println("=============================================================")
 }
-
+//Fungsi Mengurutkan Data Barang
 func sortDataBarang(data *array) {
 	var opsi, subOpsi int
 	if data.jumlah_inventory == 0 {
