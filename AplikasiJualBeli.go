@@ -42,6 +42,7 @@ func main() {
 	mainMenu(&data)
 }
 
+//Menampilkan menu utama
 func mainMenu(data *array) {
 	var nData int
 	for {
@@ -97,6 +98,7 @@ func mainMenu(data *array) {
 	}
 }
 
+//Menampilkan menu Kustomisasi Data Barang
 func menuBarang(data *array) {
 	var pilihKustomisasi int
 	for {
@@ -128,6 +130,7 @@ func menuBarang(data *array) {
 	}
 }
 
+//Menampilkan menu Kustomisasi Data Transaksi
 func menuTransaksi(data *array) {
 	var pilihKustomisasi int
 	for {
@@ -162,6 +165,7 @@ func menuTransaksi(data *array) {
 	}
 }
 
+//Fungsi Tambah Data Barang
 func tambahDataBarang(data *array) {
 	var jumlahBarang int
 	if data.jumlah_inventory < NMAX {
@@ -232,6 +236,7 @@ func tambahDataBarang(data *array) {
 	}
 }
 
+//Fungsi Edit Data Barang
 func editDataBarang(data *array) {
 	var index, cari_ID int
 
@@ -285,6 +290,7 @@ func editDataBarang(data *array) {
 	fmt.Println("Data berhasil diubah.")
 }
 
+//Fungsi Hapus Data Barang
 func hapusDataBarang(data *array) {
 	var index, cari_ID int
 
@@ -309,6 +315,7 @@ func hapusDataBarang(data *array) {
 	fmt.Println("Data berhasil dihapus.")
 }
 
+//Fungsi Cari Barang
 func findBarang(data *array, id int) int {
 	selectionSort(data, 1, "ID")
 
