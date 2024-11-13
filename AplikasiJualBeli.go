@@ -332,7 +332,7 @@ func findBarang(data *array, id int) int {
 	}
 	return -1
 }
-
+//Fungsi Cetak Data Barang
 func cetakDataBarang(data *array) {
 	if data.jumlah_inventory == 0 {
 		fmt.Println("Inventori masih kosong.")
